@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/nestedViewPager"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="12dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ParentFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/download"
+            android:layout_height="210dp"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:padding="18dp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/image_view"
+            android:textSize="20dp"
+            android:text="Maintaining loan book quality top priority: New SBI Chairamn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/desc"
+            android:padding="14dp"
+            android:layout_below="@+id/title"
+            android:textSize="20dp"
+            android:text="Only to complete Josh Clemm answer. You can also maintain the same image defined by src, but change or highlight only the background. This would more or less like this:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="100dp"/>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
