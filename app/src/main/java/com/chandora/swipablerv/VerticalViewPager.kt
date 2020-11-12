@@ -32,7 +32,7 @@ class VerticalViewPager @JvmOverloads constructor(context: Context,
 
     private fun init() {
         setPageTransformer(true, VerticalPageTransformer())
-        overScrollMode = View.OVER_SCROLL_NEVER
+        overScrollMode = View.LAYER_TYPE_HARDWARE
     }
 
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
@@ -95,6 +95,31 @@ class VerticalViewPager @JvmOverloads constructor(context: Context,
         return Point(point)
     }
 
+//    private class VerticalPageTransformer : PageTransformer {
+//        override fun transformPage(
+//            view: View,
+//            position: Float
+//        ) {
+//            if (position < -1) { // [-Infinity,-1)
+//                // This page is way off-screen to the left.
+//                view.alpha = 0f
+//            } else if (position <= 1) { // [-1,1]
+//                view.alpha = 1f
+//
+//                // Counteract the default slide transition
+//                view.translationX = view.width * -position
+//
+//                //set Y position to swipe in from top
+//                val yPosition = position * view.height
+//                view.translationY = yPosition
+//            } else { // (1,+Infinity]
+//                // This page is way off-screen to the right.
+//                view.alpha = 0f
+//            }
+//        }
+//    }
+
+
     private inner class VerticalPageTransformer : PageTransformer {
         override fun transformPage(
             view: View,
@@ -105,7 +130,7 @@ class VerticalViewPager @JvmOverloads constructor(context: Context,
                 // Counteract the default slide transition
                 view.translationX = view.width * -position
 
-                //set Y position to swipe in from top
+////                //set Y position to swipe in from top
                 val yPosition = position * view.height
                 view.translationY = yPosition
                 view.scaleX = 1f
@@ -130,6 +155,48 @@ class VerticalViewPager @JvmOverloads constructor(context: Context,
 
     }
 
+//    class VerticalPageTransformer : PageTransformer {
+//
+//        override fun transformPage(
+//            view: View,
+//            position: Float
+//        ) {
+//            val pageWidth = view.width
+//            if (position < -1) { // [-Infinity,-1)
+//                // This page is way off-screen to the left.
+//                view.alpha = 0f
+//            } else if (position <= 0) { // [-1,0]
+//                // Use the default slide transition when moving to the left page
+//                view.alpha = 1f
+//                view.translationX = 0f
+//                view.scaleX = 1f
+//                view.scaleY = 1f
+//            } else if (position <= 1) { // (0,1]
+//                // Fade the page out.
+//                view.alpha = 1 - position
+//
+//                // Counteract the default slide transition
+//                view.translationX = pageWidth * -position
+//
+//                // Scale the page down (between MIN_SCALE and 1)
+//                val scaleFactor = (MIN_SCALE
+//                        + (1 - MIN_SCALE) * (1 - Math.abs(
+//                    position
+//                )))
+//                view.scaleX = scaleFactor
+//                view.scaleY = scaleFactor
+//            } else { // (1,+Infinity]
+//                // This page is way off-screen to the right.
+//                view.alpha = 0f
+//            }
+//        }
+//
+//        companion object {
+//            private const val MIN_SCALE = 0.75f
+//        }
+//    }
+
+
     private fun MotionEvent.swapXY() {
         val width = width.toFloat()
         val height = height.toFloat()
@@ -139,7 +206,7 @@ class VerticalViewPager @JvmOverloads constructor(context: Context,
     }
 
     companion object {
-        private const val MIN_SCALE = 0.90f
+        private const val MIN_SCALE = 0.30f
     }
 
     init {

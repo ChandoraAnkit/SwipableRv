@@ -9,9 +9,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 public class ParentFragment extends Fragment {
@@ -68,6 +70,8 @@ public class ParentFragment extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 tv.trigger(position);
+
+                Log.d("Anu", String.valueOf(position));
             }
 
             @Override

@@ -18,6 +18,6 @@ class HorizontalPagerAdapter(fm: FragmentManager): FragmentStatePagerAdapter(fm)
     }
 
     override fun getCount(): Int {
-       return  2
+       return  8
     }
 }

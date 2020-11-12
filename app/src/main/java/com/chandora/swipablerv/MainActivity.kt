@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), ToggleVerticalViewPagerScrolling {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,10 +35,7 @@ class MainActivity : AppCompatActivity(), ToggleVerticalViewPagerScrolling {
 //
 //        recycler_view.adapter = ItemAdapter()
 
-        var mAdapter =
-            VerticalPagerAdapter(
-                getSupportFragmentManager()
-            );
+        var mAdapter = VerticalPagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(mAdapter);
 //
 //        viewpager.currentItem
